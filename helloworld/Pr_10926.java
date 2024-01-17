@@ -1,0 +1,12 @@
+package baekjoon.helloworld;
+
+import java.util.Scanner;
+
+public class Pr_10926 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String validId = scanner.nextLine();
+
+        System.out.println(validId + "??!");
+    }
+}
