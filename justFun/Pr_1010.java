@@ -15,21 +15,22 @@ public class Pr_1010 {
 
         for(int i = 0; i < howManyTimes; i++){
             stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-            long west = Long.parseLong(stringTokenizer.nextToken());
-            long east = Long.parseLong(stringTokenizer.nextToken());
-            long aboveMul = 1;
-            long underMul = 1;
-            for(long k = west; k >= 1; k--){
+            int west = Integer.parseInt(stringTokenizer.nextToken());
+            int east = Integer.parseInt(stringTokenizer.nextToken());
+            double aboveMul = 1;
+            double underMul = 1;
+
+            for(int k = west; k >= 1; k--){
                 underMul *= k;
             }
-            for(long j = east; j >east - west; j--){
+            for(int j = east; j >east - west; j--){
                 aboveMul *= j;
             }
             if(east == west){
                 numList[i] = 1;
                 continue;
             }
-            double combination = (double) aboveMul / underMul;
+            double combination =  aboveMul / underMul;
             numList[i] = (long)combination;
         }
         for(long i : numList){
