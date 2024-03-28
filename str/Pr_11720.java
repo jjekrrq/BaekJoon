@@ -7,12 +7,19 @@ import java.io.InputStreamReader;
 public class Pr_11720 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String num = bufferedReader.readLine();
-        String[] num1 = new String[num.length()];
-        int[] numList = new int[num1.length];
+        String testCases = bufferedReader.readLine();
+        int testCase = Integer.parseInt(testCases);
+        String number = bufferedReader.readLine();
+        int[] numList = new int[testCase];
+        int sum = 0;
 
-        for(int i = 0; i < num1.length; i++){
-//            num1[i] = num.charAt(i);
+        for(int i = 0; i < number.length(); i++){
+            int one = Character.getNumericValue(number.charAt(i));
+            numList[i] = one;
         }
+        for(int i : numList){
+            sum += i;
+        }
+        System.out.println(sum);
     }
 }
