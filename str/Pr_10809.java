@@ -1,31 +1,32 @@
 package baekjoon.str;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class Pr_10809 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String inputString = bufferedReader.readLine();
-        int[] spell = new int[36];
 
-        for(int i = 0; i < inputString.length(); i++){
-            char a = inputString.charAt(i);
-            for(int j = 'a'; j <= 'z'; j++){
-                if(a == j){
-                    spell[j-97] = 1;
-                    break;
-                }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int[] arr = new int[26];
+
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = -1;
+        }
+
+        String S = br.readLine();
+
+        for(int i = 0; i < S.length(); i++) {
+            char ch = S.charAt(i);
+
+            if(arr[ch - 'a'] == -1) {	// arr 원소 값이 -1 인 경우에만 초기화
+                arr[ch - 'a'] = i;
             }
         }
-        for(int i = 0; i < spell.length; i++){
-            if(spell[i] == 1){
-                System.out.print(i + " ");
-            }
-            else{
-                System.out.print(-1 + " ");
-            }
+
+        for(int val : arr) {	// 배열 출력
+            System.out.print(val + " ");
         }
     }
 }
