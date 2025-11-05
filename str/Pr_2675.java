@@ -7,25 +7,26 @@ import java.util.StringTokenizer;
 
 public class Pr_2675 {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer stringTokenizer;
-        String beforeTestCase = bufferedReader.readLine();
-        int testCase = Integer.parseInt(beforeTestCase);
-        int[] num = new int[testCase];
-        String[] strings = new String[testCase];
-        String[] strings1 = new String[testCase];
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        for(int i = 0; i < testCase; i++){
-            stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-            num[i] = Integer.parseInt(stringTokenizer.nextToken());
-            strings[i] = stringTokenizer.nextToken();
-        }
+        int T = Integer.parseInt(br.readLine()); // 테스트 케이스 개수
 
-        for (int i = 0; i < testCase; i++){
-            String s;
-            for(int j = 0; j < strings[i].toCharArray().length; j++){
-                s =
+        for (int i = 0; i < T; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int R = Integer.parseInt(st.nextToken()); // 반복 횟수
+            String S = st.nextToken();                // 문자열
+
+            StringBuilder result = new StringBuilder();
+
+            for (int j = 0; j < S.length(); j++) {
+                char c = S.charAt(j);
+                // 각 문자를 R번 반복
+                for (int k = 0; k < R; k++) {
+                    result.append(c);
+                }
             }
+
+            System.out.println(result);
         }
     }
 }
